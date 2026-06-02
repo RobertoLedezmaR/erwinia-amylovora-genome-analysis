@@ -1,1 +1,1 @@
-Taxonomic classification results.
+One Codex identificó a E. amylovora como el organismo predominante en la muestra con una abundancia del 97.02 % y una cobertura de 717.717X, resultado consistente con la cobertura previamente calculada (~725X), permitiendo seleccionar un genoma de referencia adecuado para los análisis posteriores.
