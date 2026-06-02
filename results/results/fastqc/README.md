@@ -1,1 +1,1 @@
-FastQC quality control results.
+El análisis con FastQC mostró lecturas paired-end de alta calidad, con puntuaciones Phred elevadas, ausencia de bases ambiguas y longitud uniforme. Se obtuvieron 9,202,195 lecturas, con un total de 1.3 Gpb, sin secuencias catalogadas como de mala calidad. Las lecturas presentaron una longitud de 151 pb y un contenido GC de 53 %, coincidente con el valor reportado para E. amylovora (53.5 %). 
