@@ -1,0 +1,23 @@
+Assembly	SPAdes	ABySS_k85	Velvet_k31
+# contigs (>= 0 bp)	191	292	427
+# contigs (>= 1000 bp)	34	41	124
+# contigs (>= 5000 bp)	25	34	88
+# contigs (>= 10000 bp)	22	30	75
+# contigs (>= 25000 bp)	21	25	52
+# contigs (>= 50000 bp)	16	20	23
+Total length (>= 0 bp)	3810612	3828759	3774013
+Total length (>= 1000 bp)	3778374	3784115	3726249
+Total length (>= 5000 bp)	3760268	3766922	3646720
+Total length (>= 10000 bp)	3739304	3743690	3548535
+Total length (>= 25000 bp)	3715622	3662509	3127243
+Total length (>= 50000 bp)	3523341	3486694	2080018
+# contigs	41	44	143
+Largest contig	778136	375831	190914
+Total length	3783407	3786180	3740514
+GC (%)	53.54	53.55	53.51
+N50	378097	182486	57044
+N90	56517	72359	18289
+auN	360315.3	215580.3	73109.9
+L50	4	7	20
+L90	14	19	64
+# N's per 100 kbp	0.00	0.37	0.00

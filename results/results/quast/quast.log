@@ -1,0 +1,79 @@
+/home/robertolede/yes/envs/quast_env/bin/quast.py spades/contigs.fasta abyss-k85/abyss-6.fa velvet_results/velvet_results/k31/contigs.fa --labels SPAdes,ABySS_k85,Velvet_k31 -o quast_comparacion_final
+
+Version: 5.2.0
+
+System information:
+  OS: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39 (linux_64)
+  Python version: 3.10.12
+  CPUs number: 12
+
+Started: 2026-04-27 15:40:25
+
+Logging to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/quast.log
+NOTICE: Output directory already exists and looks like a QUAST output dir. Existing results can be reused (e.g. previously generated alignments)!
+NOTICE: Maximum number of threads is set to 3 (use --threads option to set it manually)
+
+CWD: /home/robertolede/bioinformatica_2026-1/Practica_6
+Main parameters: 
+  MODE: default, threads: 3, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+Contigs:
+  Pre-processing...
+  1  spades/contigs.fasta ==> SPAdes
+  2  abyss-k85/abyss-6.fa ==> ABySS_k85
+  3  velvet_results/velvet_results/k31/contigs.fa ==> Velvet_k31
+
+2026-04-27 15:40:26
+Running Basic statistics processor...
+  Contig files: 
+    1  SPAdes
+    2  ABySS_k85
+    3  Velvet_k31
+  Calculating N50 and L50...
+    1  SPAdes, N50 = 378097, L50 = 4, auN = 360315.3, Total length = 3783407, GC % = 53.54, # N's per 100 kbp =  0.00
+    2  ABySS_k85, N50 = 182486, L50 = 7, auN = 215580.3, Total length = 3786180, GC % = 53.55, # N's per 100 kbp =  0.37
+    3  Velvet_k31, N50 = 57044, L50 = 20, auN = 73109.9, Total length = 3740514, GC % = 53.51, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/GC_content_plot.pdf
+  Drawing SPAdes GC content plot...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/SPAdes_GC_content_plot.pdf
+  Drawing ABySS_k85 GC content plot...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/ABySS_k85_GC_content_plot.pdf
+  Drawing Velvet_k31 GC content plot...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/Velvet_k31_GC_content_plot.pdf
+  Drawing Coverage histogram (bin size: 1x)...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/coverage_histogram.pdf
+  Drawing SPAdes coverage histogram (bin size: 1x)...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/SPAdes_coverage_histogram.pdf
+  Drawing Velvet_k31 coverage histogram (bin size: 1x)...
+    saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/basic_stats/Velvet_k31_coverage_histogram.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2026-04-27 15:40:31
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating PDF with all tables and plots...
+  2 of 2: Creating Icarus viewers...
+Done
+
+2026-04-27 15:40:32
+RESULTS:
+  Text versions of total report are saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/report.html
+  PDF version (tables and plots) is saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/report.pdf
+  Icarus (contig browser) is saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/icarus.html
+  Log is saved to /home/robertolede/bioinformatica_2026-1/Practica_6/quast_comparacion_final/quast.log
+
+Finished: 2026-04-27 15:40:32
+Elapsed time: 0:00:07.096388
+NOTICEs: 3; WARNINGs: 1; non-fatal ERRORs: 0
+
+Thank you for using QUAST!
