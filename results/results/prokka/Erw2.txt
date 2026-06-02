@@ -1,0 +1,8 @@
+organism: Erwinia amylovora strain 
+contigs: 191
+bases: 3810612
+CDS: 3407
+rRNA: 20
+repeat_region: 3
+tRNA: 85
+tmRNA: 1
