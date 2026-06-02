@@ -1,1 +1,1 @@
-Phylogenomic analysis results.
+El árbol filogenómico mostrado en la Práctica 7, evidenció que el genoma ensamblado a identificar se agrupó estrechamente con los genomas de referencia de Erwinia amylovora, mientras que el grupo externo Erwinia tasmaniensis quedó separado en otra rama del árbol. Lo que confirma que el organismo ensamblado pertenece a la especie Erwinia amylovora del manzano, ya que comparte una alta relación o similitud filogenómica con las cepas de referencia obtenidas de NCBI y presenta una distancia evolutiva considerable respecto al grupo externo.
