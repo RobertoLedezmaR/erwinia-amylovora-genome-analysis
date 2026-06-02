@@ -1,0 +1,562 @@
+ 1189  awk '/^>/ {print ">seq_" ++i; next} {print}' spades_vh5.fasta > spades_vh5_clean.fasta
+ 1190  grep -c ">" spades_vh5_clean.fasta
+ 1192  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/VAMPhyRE/bin
+ 1193  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales/spades_vh5_clean.fasta -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales/lista.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales/resultado_vamphyre.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1194  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales/spades_vh5_clean.fasta -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales/lista.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales/resultado_vamphyre.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1195  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1197  ls -lh
+ 1198  awk '/^>/ {print ">Query_Spades"; next} {print}' spades.fasta > spades_mega.fasta
+ 1199  awk '/^>/ {print ">Ref_" ++i; next} {print}' Genoma20_Erw2_grupo_externo.fasta > ref_mega.fasta
+ 1200  grep -c ">" spades_mega.fasta
+ 1201  grep -c ">" ref_mega.fasta
+ 1202  cat spades_mega.fasta ref_mega.fasta > dataset_mega.fasta
+ 1203  grep -c ">" dataset_mega.fasta
+ 1204  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1205  awk '
+ 1216  grep -c ">" spades_single.fasta
+ 1217  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1218  awk '
+ 1228  grep -c ">" spades_consensus.fasta
+ 1229  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1230  grep -c ">" spades.fasta
+ 1231  grep -c ">" Genoma20_Erw2_grupo_externo.fasta
+ 1232  awk '
+ 1241  grep -c ">" spades_single.fasta
+ 1242  awk '/^>/ {print ">Ref_" ++i; next} {print}' Genoma20_Erw2_grupo_externo.fasta > ref_clean.fasta
+ 1243  grep -c ">" ref_clean.fasta
+ 1244  cat spades_single.fasta ref_clean.fasta > dataset_final.fasta
+ 1245  grep -c ">" dataset_final.fasta
+ 1251  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1252  ls -lh
+ 1254  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1255  cp spades.fasta spades_clean.fasta
+ 1256  awk '/^>/ {print ">Ref_" ++i; next} {print}' Genoma20_Erw2_grupo_externo.fasta > ref_clean.fasta
+ 1257  cat spades_clean.fasta ref_clean.fasta > dataset_final.fasta
+ 1258  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1262  rm -f spades_mega.fasta
+ 1263  rm -f dataset_mega.fasta
+ 1271  ls -lh
+ 1272  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1274  rm -f ref_mega.fasta
+ 1279  grep -c ">" spades.fasta
+ 1280  chmod +x ContigsConcatenation.sh
+ 1281  ./ContigsConcatenation.sh
+ 1282  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1283  find . -name "ContigsConcatenation*"
+ 1284  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1285  chmod +x ContigsConcatenation.sh
+ 1286  cd originales
+ 1287  ../ContigsConcatenation.sh
+ 1288  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1289  ls -lh ContigsConcatenation.*
+ 1290  chmod +x ContigsConcatenation.sh
+ 1291  chmod +x ContigsConcatenation.pl
+ 1292  ./ContigsConcatenation.sh
+ 1293  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1294  chmod +x ContigsConcatenation.sh ContigsConcatenation.pl
+ 1295  ./ContigsConcatenation.sh
+ 1296  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1297  ls -lh
+ 1298  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1299  ls -lh
+ 1301  ls -lh spades*
+ 1302  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1303  ls -lh
+ 1305  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1306  awk '
+ 1311  grep -c ">" spades_probe.fasta
+ 1312  ../VAMPhyRE/bin/VH5cmdl -PROBEFILE spades_probe.fasta -TARGETLIST lista.txt -OUTFILE vh_salida.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1313  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1314  awk '
+ 1318  ls genoma_*.fasta | wc -l
+ 1319  ls genoma_*.fasta > lista.txt
+ 1320  ../VAMPhyRE/bin/VH5cmdl -PROBEFILE spades_probe.fasta -TARGETLIST lista.txt -OUTFILE vh_salida.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1322  ../VAMPhyRE/bin/VH5cmdl -PROBEFILE spades_probe.fasta -TARGETLIST test_list.txt -OUTFILE test_vh.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1323  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/originales
+ 1332  rm -f ref_mega.fasta
+ 1336  ls -lh
+ 1337  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1339  mkdir -p 01_input 02_vh5 03_vfat 04_mega
+ 1342  ls -lh 01_input
+ 1343  awk '
+ 1348  grep -c ">" 02_vh5/spades_probe.fasta
+ 1350  cat 02_vh5/lista.txt
+ 1351  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/VAMPhyRE/bin
+ 1352  chmod +x VH5cmdl
+ 1353  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/02_vh5/spades_probe.fasta -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/02_vh5/lista.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/02_vh5/vh_salida.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1354  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/01_input
+ 1357  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/VAMPhyRE/bin
+ 1358  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/02_vh5/spades_probe.fasta -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/02_vh5/lista_min.txt -OUTFILE test_min.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1359  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1361  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/01_input/*.fasta > 03_vfat/lista.txt
+ 1363  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre/01_input/*.fasta > 03_vfat/lista.txt
+ 1364  cat 03_vfat/lista.txt
+ 1368  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1369  rm -rf 03_vfat 04_mega 02_vh5
+ 1377  mkdir -p 01_input 02_vh5 03_vfat 04_mega
+ 1381  ls -lh originales
+ 1382  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/analisis_vamphyre
+ 1384  ps -ef | grep VH5cmdl
+ 1386  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/vh_salida.txt
+ 1387  ps -ef | grep VH5cmdl
+ 1389  while true; do echo "===== $(date) ====="; ps -ef | grep VH5cmdl | grep -v grep; echo ""; ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/vh_salida.txt; echo ""; sleep 60; done
+ 1390  while true; do echo "===== $(date) =====";  if ps -ef | grep VH5cmdl | grep -v grep > /dev/null; then     echo "VH5: SIGUE CORRIENDO"; else     echo "VH5: TERMINADO";     echo "LISTO VH5" | tee -a vh_monitor_log.txt;     break; fi;  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/vh_salida.txt;  echo ""; sleep 60; done
+ 1391  while true; do echo "===== $(date) =====";  if ps -ef | grep VH5cmdl | grep -v grep > /dev/null; then     echo "VH5: SIGUE CORRIENDO"; else     echo "VH5: TERMINADO";     echo "LISTO VH5" | tee -a vh_monitor_log.txt;     break; fi;  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/vh_salida.txt;  echo ""; sleep 60; done
+ 1393  ls -lh vh_salida.txt
+ 1394  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/vh_salida.txt
+ 1396  cat /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/lista.txt
+ 1397  grep -c ">" /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/Genoma20.join.fasta
+ 1398  grep -c ">" /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/probes.fasta
+ 1402  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1403  ls -lh
+ 1404  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1405  chmod +x ContigsConcatenation.sh ContigsConcatenation.pl
+ 1406  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1407  ls -lh
+ 1408  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1409  ./ContigsConcatenation.sh
+ 1410  cd originales
+ 1411  ls -lh
+ 1412  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1413  ls -lh
+ 1414  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1415  sed -n '1,200p' ContigsConcatenation.sh
+ 1416  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1418  cp *.fasta backup_originales/
+ 1419  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1420  nano ContigsConcatenation.sh
+ 1421  chmod +x ContigsConcatenation.sh
+ 1422  ./ContigsConcatenation.sh
+ 1423  ls -lh ../originales
+ 1424  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto
+ 1426  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto
+ 1428  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1429  ls -lh *.fasta
+ 1430  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1431  perl ContigsConcatenation.pl
+ 1432  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1433  perl ../ContigsConcatenation.pl spades.fasta spades.join.fasta spades
+ 1434  perl ../ContigsConcatenation.pl Genoma20_Erw2_grupo_externo.fasta Genoma20.join.fasta Genoma20
+ 1435  ls -lh *.join.fasta
+ 1436  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1437  ls -lh VH5cmdl
+ 1438  chmod +x VH5cmdl
+ 1439  cd ../originales
+ 1440  nano lista.txt
+ 1441  cd ../originales
+ 1442  cp spades.join.fasta probes.fasta
+ 1443  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1444  ls -lh
+ 1445  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1446  chmod +x VH5cmdl
+ 1447  ls -lh VH5cmdl
+ 1448  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1449  cp spades.join.fasta probes.fasta
+ 1450  nano lista.txt
+ 1451  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1453  nano lista.txt
+ 1454  cat lista.txt
+ 1455  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1456  chmod +x VH5cmdl
+ 1457  ls -lh VH5cmdl
+ 1458  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/probes.fasta
+ 1459  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1460  cp spades.join.fasta probes.fasta
+ 1461  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/probes.fasta
+ 1462  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1463  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/probes.fasta -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/lista.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/vh_salida.txt -MISMATCHES 1 -STRAND both -RESULTSFORMAT reduced
+ 1465  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1466  awk '/^>/{f="genoma_"++i".fasta"}{print >> f}' Genoma20_Erw2_grupo_externo.fasta
+ 1467  ls genoma_*.fasta > lista.txt
+ 1468  ls -lh genoma_*.fasta
+ 1470  awk '
+ 1474  ls -lh genoma_*.fasta
+ 1478  ls genoma_*.fasta | sort -V > lista.txt
+ 1486  ls -lh $(head -n 1 lista.txt)
+ 1498  cd originales/
+ 1499  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1502  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto
+ 1503  ls originales
+ 1504  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto
+ 1505  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/originales
+ 1506  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto
+ 1507  mkdir genomas_concat
+ 1508  chmod +x ContigsConcatenation.sh
+ 1509  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto
+ 1510  mkdir genomas_concat
+ 1511  chmod +x ContigsConcatenation.sh
+ 1512  chmod +x /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/ContigsConcatenation.sh
+ 1513  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1514  chmod +x ContigsConcatenation.sh
+ 1516  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1517  chmod +x /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/ContigsConcatenation.sh
+ 1518  /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/ContigsConcatenation.sh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1519  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/*.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1520  cat /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1521  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1522  chmod +x VH5cmdl
+ 1523  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vps13/vps13.txt -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1524  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1526  for f in /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/*.fasta; do     base=$(basename "$f" .fasta);      awk '
+ 1532  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1533  cat /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1534  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1540  for f in /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/*.fasta; do     base=$(basename "$f" .fasta);      awk '
+ 1546  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1548  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1549  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1550  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1554  for f in /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/*.{fna,fasta}; do     [ -e "$f" ] || continue;      base=$(basename "$f");     base="${base%.*}";      awk '
+ 1560  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1561  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1564  while read f; do ls "$f"; done < /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1566  while read f; do ls "$f"; done < /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1567  ./VH5cmdl ...
+ 1568  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join | grep -i out
+ 1572  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1573  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vps13/vps13.txt -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1574  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1575  chmod +x ContigsConcatenation.sh
+ 1576  ./ContigsConcatenation.sh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales
+ 1577  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1578  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1579  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1580  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vps13/vps13.txt -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1581  while read f; do     if [ ! -f "$f" ]; then         echo "❌ NO EXISTE: $f";     else         echo "OK: $f";     fi; done < /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1582  ls -lh archivo.join.fasta
+ 1583  while read f; do     if [ ! -f "$f" ]; then         echo "❌ NO EXISTE: $f";     else         echo "OK: $f";     fi; done < /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1584  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/
+ 1585  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/NOMBRE_DEL_ARCHIVO.join.fasta
+ 1586  for f in /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales/*.{fna,fasta}; do     [ -e "$f" ] || continue;      base=$(basename "$f");     base="${base%.*}";      awk '
+ 1593  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1594  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1595  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vps13/vps13.txt -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1596  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1597  cat list.txt
+ 1598  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1599  ls -lh
+ 1600  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1601  ./ContigsConcatenation.sh originales
+ 1602  cd originales_join
+ 1603  ls -lh
+ 1604  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1605  ./ContigsConcatenation.sh originales
+ 1606  cd originales_join
+ 1607  ls -lh
+ 1608  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1611  for f in originales/*.{fna,fasta}; do     [ -e "$f" ] || continue;      base=$(basename "$f");     base="${base%.*}";      awk '
+ 1617  ls originales_join/*.join.fasta > list.txt
+ 1618  ls -lh originales_join
+ 1619  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1622  for f in originales/*.{fna,fasta}; do     [ -e "$f" ] || continue;      base=$(basename "$f");     base="${base%.*}";      awk '
+ 1630  ls -lh originales_join
+ 1631  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1634  cd originales
+ 1635  for f in *.fna; do     base=$(basename "$f" .fna);     cp "$f" "${base}.fasta"; done
+ 1636  cd ..
+ 1637  for f in originales/*.fasta; do     base=$(basename "$f" .fasta);      awk '
+ 1644  ls originales_join/*.join.fasta > list.txt
+ 1645  cd originales_join
+ 1646  ls -lh
+ 1647  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1650  for f in originales/*.fasta; do     base=$(basename "$f" .fasta);      awk '
+ 1660  ls originales_join/*.join.fasta > list.txt
+ 1661  ls -lh originales_join
+ 1662  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1663  ls originales_join/*.join.fasta > list.txt
+ 1664  cd VAMPhyRE/bin
+ 1665  ./VH5cmdl -PROBEFILE ../../vps13/vps13.txt -TARGETLIST ../../list.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1666  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1667  cat -A list.txt
+ 1668  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1670  ls -1 originales_join/*.join.fasta > list.txt
+ 1671  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1672  while read f; do     echo "Checking: $f";     ls -lh "$f"; done < list.txt
+ 1673  cd VAMPhyRE/bin
+ 1674  ./VH5cmdl -PROBEFILE ../../vps13/vps13.txt -TARGETLIST ../../list.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1675  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1676  cat -A list.txt
+ 1677  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1678  ls -1 originales_join/*.join.fasta | sed 's|^|../|' > list.txt
+ 1679  ls -1 originales_join/*.join.fasta > list.txt
+ 1681  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1682  ./VAMPhyRE/bin/VH5cmdl -PROBEFILE vps13/vps13.txt -TARGETLIST list.txt -OUTFILE vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1683  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1684  for f in *.join.fasta; do     echo "Checking $f";     awk 'NR==1{ok=1} END{if(ok) print "OK"}' "$f" || echo "PROBLEMA: $f"; done
+ 1685  grep -L "^>" *.join.fasta
+ 1686  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1687  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta > /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1688  ./VH5cmdl -PROBEFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vps13/vps13.txt -TARGETLIST /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt -OUTFILE /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1689  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1690  cp /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/*.join.fasta .
+ 1691  ls *.join.fasta > list.txt
+ 1692  cp /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vps13/vps13.txt .
+ 1693  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1695  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1696  cp ../../vps13.txt .
+ 1697  ls *.join.fasta > list.txt
+ 1698  ./VH5cmdl -PROBEFILE vps13.txt -TARGETLIST list.txt -OUTFILE vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1701  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1702  ls -l VFAT
+ 1704  ls -l VFAT
+ 1706  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1707  ls -lh dist_salida*
+ 1711  ls -lh dist_salida*
+ 1712  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1714  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1715  nano dist_salida.meg
+ 1717  cd /dist_salida.meg
+ 1718  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1720  sed -n '25,60p' dist_salida.meg
+ 1722  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1723  ls -lh dist_salida.meg
+ 1724  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1725  sed -E 's/^\[[0-9]+\]\s+#/>/' dist_salida.meg > dist_salida_FIXED.meg
+ 1727  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1728  awk '
+ 1737  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1738  sed -E 's/^\[[0-9]+\]\s+#/>/' dist_salida.meg > dist_salida_FIXED.meg
+ 1739  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1740  cp dist_salida.meg dist_salida_backup.meg
+ 1741  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1742  awk '
+ 1752  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1753  awk '
+ 1761  grep -c "^\[" dist_salida_clean.meg
+ 1762  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1764  cat list.txt
+ 1766  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1770  grep -c "\[" dist_salida.meg
+ 1771  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1772  grep -c "^\[" dist_salida.meg
+ 1775  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1777  ls originales_join/*.join.fasta | sort > list.txt
+ 1779  cd VAMPhyRE/bin
+ 1781  ./VH5cmdl -PROBEFILE vps13.txt -TARGETLIST ../list.txt -OUTFILE vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1782  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1783  while read f; do     if [ ! -f "$f" ]; then         echo "❌ FALTA: $f";     else         echo "OK: $f";     fi; done < list.txt
+ 1784  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1786  for f in *.join.fasta; do     if ! grep -q "^>" "$f"; then         echo "❌ SIN HEADER FASTA: $f";     fi; done
+ 1787  cd originales_join
+ 1789  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1790  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../../list.txt -OUTFILE vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1791  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1792  ls -1 originales_join/*.join.fasta > list.txt
+ 1794  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1795  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1796  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1799  while read f; do ls -lh ../"$f"; done < ../list.txt
+ 1800  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1801  ls -lh list.txt
+ 1802  ls -1 originales_join/*.join.fasta > list.txt
+ 1803  while read f; do ls -lh "$f"; done < list.txt
+ 1804  while read f; do     if [ -f "$f" ]; then         echo "OK: $f";     else         echo "FALTA: $f";     fi; done < list.txt
+ 1805  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1806  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1807  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1809  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 1811  for f in *.join.fasta; do     awk '/^>/ {keep=($0 ~ /chromosome/)} keep' "$f" > solo_chromosome/"$f"; done
+ 1812  grep -c ">" solo_chromosome/*.fasta
+ 1813  grep -L "^>" solo_chromosome/*.fasta
+ 1814  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1817  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1818  ls -lh
+ 1819  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1820  ls originales_join/*.join.fasta > list.txt
+ 1821  cat list.txt
+ 1822  cd VAMPhyRE/bin
+ 1823  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1824  ls -lh list.txt
+ 1825  cat list.txt
+ 1826  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1829  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1830  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1831  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1832  while read f; do     ls -lh "$f" || echo "❌ NO EXISTE: $f"; done < ../list.txt
+ 1833  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1834  while read f; do     ls -lh "/home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/$f"     || echo "❌ NO EXISTE: $f"; done < /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/list.txt
+ 1835  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1838  cd VAMPhyRE/bin
+ 1839  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1840  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1842  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1845  ls -lh /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join/solo_chromosome/
+ 1846  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1850  cd VAMPhyRE/bin
+ 1851  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1852  cd VAMPhyRE/bin
+ 1853  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1854  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1856  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1860  cd VAMPhyRE/bin
+ 1861  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1862  grep -v "NODE_" list.txt > list_clean.txt
+ 1867  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1868  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST list_clean.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1870  grep -v "spades" list_clean.txt > list_no_spades.txt
+ 1871  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1872  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST list_no_spades.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1873  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1878  cd VAMPhyRE/bin
+ 1879  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1880  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1882  grep -L "plasmid\|NODE" originales_join/*.join.fasta
+ 1883  for f in originales_join/*.join.fasta; do     if grep -q "chromosome" "$f"; then         cp "$f" solo_chromosome/;     fi; done
+ 1886  cat list.txt
+ 1887  while read f; do     if [ ! -s "$f" ]; then         echo "❌ PROBLEMA: $f";     else         echo "OK: $f";     fi; done < list.txt
+ 1888  cd VAMPhyRE/bin
+ 1889  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1890  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 1891  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1892  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1894  while read f; do     if [ ! -s "$f" ]; then         echo "❌ VACÍO O CORRUPTO: $f";     elif ! head -n 1 "$f" | grep -q "^>"; then         echo "❌ NO FASTA: $f";     else         echo "OK: $f";     fi; done < list.txt
+ 1896  for f in solo_chromosome/*.fasta; do     awk '/^>/{if(n++) exit} {print}' "$f" > solo_chromosome_clean/$(basename "$f"); done
+ 1897  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/solo_chromosome_clean/*.fasta > list.txt
+ 1898  cd VAMPhyRE/bin
+ 1899  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1901  ls GCF_000026185.1_ASM2618v1_genomic.join.fasta
+ 1902  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1906  cd VAMPhyRE/bin
+ 1907  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1908  cd Genomas_ref
+ 1910  cp originales_join/*.join.fasta vh_input/
+ 1911  ls vh_input/*.fasta > list.txt
+ 1912  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1914  cp originales_join/*.join.fasta vh_input/
+ 1915  ls vh_input | head
+ 1916  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_input/*.fasta > list.txt
+ 1918  while read f; do     if [ ! -s "$f" ]; then         echo "ERROR: $f";     else         echo "OK: $f";     fi; done < list.txt
+ 1919  cd VAMPhyRE/bin
+ 1920  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1922  ls vh_input | head
+ 1924  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 1925  ls
+ 1927  cp originales_join/*.join.fasta vh_input/
+ 1928  ls /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/vh_input/*.fasta > list.txt
+ 1931  cd VAMPhyRE/bin
+ 1932  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1937  cd "$BASE"
+ 1948  cp originales_join/*.join.fasta vh_input/
+ 1953  ls "$BASE"/vh_input/*.fasta > list.txt
+ 1963  echo "🧬 Ejecutando VH5cmdl..."
+ 1964  cd "$BASE/VAMPhyRE/bin"
+ 1965  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 1970  cd "$BASE"
+ 1981  cp originales_join/*.join.fasta vh_input/
+ 1986  ls "$BASE"/vh_input/*.fasta > list.txt
+ 1996  echo "🧬 Ejecutando VH5cmdl..."
+ 1997  cd "$BASE/VAMPhyRE/bin"
+ 1998  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2002  cd "$BASE" || { echo "❌ No se pudo entrar a $BASE"; exit 1; }
+ 2007  cp originales_join/*.join.fasta vh_input/ 2>/dev/null
+ 2009  ls "$BASE"/vh_input/*.fasta > list.txt 2>/dev/null
+ 2011  while read f; do     if [ ! -s "$f" ]; then         echo "⚠️ Archivo vacío o inválido: $f";     else         echo "OK: $f";     fi; done < list.txt
+ 2012  echo "🧬 Ejecutando VH5cmdl..."
+ 2013  cd "$BASE/VAMPhyRE/bin" || exit 1
+ 2014  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2016  echo "VH5cmdl exit code: $VH_STATUS"
+ 2017  if [ $VH_STATUS -ne 0 ]; then     echo "❌ VH5cmdl falló, pero el script continúa"; fi
+ 2029  cd "$BASE"
+ 2030  if [ -f dist_salida.meg ]; then     sed -i 's/,.*$//' dist_salida.meg;     dos2unix dist_salida.meg 2>/dev/null;     echo "✅ MEGA listo"; else     echo "⚠️ No se generó dist_salida.meg"; fi
+ 2032  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2034  for f in originales_join/*.join.fasta; do     awk '/^>/ {print; next} {gsub(/[^ATCGN]/,""); print}' "$f" > vh_input_clean/$(basename "$f"); done
+ 2035  cd ~/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/originales_join
+ 2036  awk '
+ 2038  cat spades.one_line.fasta >> spades_clean.fasta
+ 2039  awk '
+ 2041  cat tmp.seq >> spades_clean.fasta
+ 2042  cd ~/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2044  cp originales_join/*.join.fasta vh_input_final/
+ 2045  cp originales_join/spades_clean.fasta vh_input_final/
+ 2046  ls vh_input_final/*.fasta > list_final.txt
+ 2047  grep ">" vh_input_final/spades_clean.fasta
+ 2048  cd VAMPhyRE/bin
+ 2049  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list_final.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2050  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 2051  cat ../list_final.txt
+ 2052  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2053  ls vh_input_final
+ 2054  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2057  cat list_final.txt
+ 2059  cd VAMPhyRE/bin
+ 2060  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list_final.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2061  while read f; do     if [ -f "$f" ]; then         echo "OK: $f";     else         echo "❌ NO EXISTE: $f";     fi; done < list_final.txt
+ 2062  while read f; do     if [ -f "$f" ]; then         echo "OK: $f";     else         echo "❌ NO EXISTE: $f";     fi; done < ../list_final.txt
+ 2063  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2064  ls -lh list_final.txt
+ 2065  cd Genomas_ref
+ 2066  ls -lh list_final.txt
+ 2069  ls -lh ../vps13/vps13.txt
+ 2075  grep "GCF_" list_final.txt > list_vh5_clean.txt
+ 2077  ./VH5cmdl -PROBEFILE ../vps13/vps13.txt -TARGETLIST ../list_vh5_clean.txt -OUTFILE ../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2078  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 2079  ./VH5cmdl -PROBEFILE ../../vps13/vps13.txt -TARGETLIST ../../list_vh5_clean.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2080  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 2081  ls -lh VH5cmdl
+ 2083  strace -o vh_debug.txt ./VH5cmdl -PROBEFILE ../../vps13/vps13.txt -TARGETLIST ../../list_vh5_clean.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2086  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref/VAMPhyRE/bin
+ 2087  strace -o vh_debug.txt ./VH5cmdl -PROBEFILE ../../vps13/vps13.txt -TARGETLIST ../../list_vh5_clean.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2088  grep "ENOENT" vh_debug.txt | tail
+ 2089  ./VH5cmdl -PROBEFILE ../../vps13.txt -TARGETLIST ../../list_vh5_clean.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2090  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2091  ls -lh originales_join/spades_clean.fasta
+ 2092  grep "GCF_" list_final.txt > list_tmp.txt
+ 2094  while read f; do     if [ ! -f "$f" ]; then         echo "❌ NO EXISTE: $f";     else         echo "OK: $f";     fi; done < list_tmp.txt
+ 2097  cd VAMPhyRE/bin
+ 2098  ./VH5cmdl -PROBEFILE ../../vps13.txt -TARGETLIST ../../list_final.txt -OUTFILE ../../vh_salida.txt -MISMATCHES 1 -STRAND both
+ 2101  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2102  ls -lh dist_salida*
+ 2103  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2104  ls -lh dist_salida*
+ 2105  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2108  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2109  sed -i 's/#spades_assembly/SPADES/' dist_salida.meg
+ 2111  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2113  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2114  sed -i 's/#spades_assembly/SPADES/g' dist_salida.meg
+ 2115  sed -i 's/#//g' dist_salida.meg
+ 2117  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2118  sed -i '1d' dist_salida.meg
+ 2120  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2121  awk 'BEGIN{print "#MEGA"} {print}' dist_salida.meg > dist_salida_meg_fix.meg
+ 2122  grep "\[" dist_salida_meg_fix.meg | head
+ 2123  grep -c "\[" dist_salida_meg_fix.meg
+ 2124  grep "\[" dist_salida.meg | head -n 5
+ 2132  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2133  sed '/^!/d' dist_salida.meg > mega_clean.meg
+ 2134  echo "#MEGA" | cat - mega_clean.meg > final_mega.meg
+ 2135  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2136  awk '
+ 2138  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2139  awk '
+ 2141  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2142  grep -E "^\[[0-9]+\]" dist_salida.meg > matriz_raw.txt
+ 2144  grep "^\[" dist_salida.meg
+ 2145  grep -c "^\[" dist_salida.meg
+ 2146  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2147  grep -E "^\[[0-9]+\]" dist_salida.meg | head -n 22 > matrix_only.txt
+ 2149  awk '
+ 2150  sed -i '1i 22' dist_clean.phy
+ 2153  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2154  awk '
+ 2155  sed -i '1i 22' dist_clean.phy
+ 2157  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2158  awk '
+ 2160  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2161  awk '
+ 2163  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2165  grep -E "^\[[0-9]+\]" dist_salida.meg > raw_matrix.txt
+ 2166  awk '
+ 2169  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2170  grep -E "^\[[0-9]+\]" dist_salida.meg | grep -v "SPADES" > matrix_only.txt
+ 2172  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2173  grep -E "^\[[0-9]+\][[:space:]]+[0-9]" dist_salida.meg > matrix_only.txt
+ 2175  awk '
+ 2177  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2178  cp dist_salida.meg dist_final.meg
+ 2179  nano dist_final.meg
+ 2180  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2181  ls -lh dist_final.meg
+ 2182  cd /home/robertolede/bioinformatica_2026-1/Practica_7_proyecto/Genomas_ref
+ 2183  nano dist_final.meg
+ 2184  history | grep -E "VH5cmdl|mega|nano|cp|ls|cat|grep|awk|sed|cd" > pipeline_bioinfo.txt
